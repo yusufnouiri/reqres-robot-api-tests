@@ -17,9 +17,9 @@ ${data_path}       $.data
 *** Test Cases ***
 Test_Case_1: Get all users from the database
     [Tags]    Demo
-    Create Session    session1        ${base_url}       disable_warnings=1
+    Create Session    session1        ${base_url}       disable_warnings=1        // Create a HTTP session to a server
     ${endpoint}       Set Variable        /api/users?page=2
-    ${response}=      GET On Session    session1    ${endpoint}
+    ${response}=      GET On Session    session1    ${endpoint}                   // "Sends a GET request on a previously created HTTP Session."
     Log To Console    ${response.headers}
     Log To Console    ${response.status_code}
     Log To Console    ${response.content}
